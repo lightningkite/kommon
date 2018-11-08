@@ -18,7 +18,7 @@ fun <E> MutableList<E>.addSorted(item: E, compare: (E, E) -> Boolean): Int {
 /**
  * Finds the position an item belongs in the list (assuming it's sorted) according to [compare] and inserts it there.
  */
-fun <E> MutableList<E>.addSorted(item: E, comparator: Comparator<E>): Int {
+fun <E> MutableList<E>.addSorted(item: E, comparator: Comparator<in E>): Int {
     var index = 0
     for (it in this) {
         if (comparator.compare(item, it) < 0) {
