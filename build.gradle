@@ -15,6 +15,7 @@ apply plugin: 'kotlin-multiplatform'
 repositories {
     jcenter()
     mavenCentral()
+    mavenLocal()
 }
 group 'com.lightningkite'
 version '0.0.1'
