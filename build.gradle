@@ -27,6 +27,7 @@ kotlin {
     targets {
         fromPreset(presets.jvm, 'jvm')
         fromPreset(presets.js, 'js')
+        fromPreset(presets.iosX64, 'ios')
     }
     sourceSets {
         commonMain {
@@ -59,6 +60,14 @@ kotlin {
         jsTest {
             dependencies {
                 api 'org.jetbrains.kotlin:kotlin-test-js'
+            }
+        }
+        iosMain {
+            dependencies {
+            }
+        }
+        iosTest {
+            dependencies {
             }
         }
     }

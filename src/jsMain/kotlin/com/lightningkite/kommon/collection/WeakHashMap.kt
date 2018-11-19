@@ -1,8 +1,7 @@
 package com.lightningkite.kommon.collection
 
-
 var WeakHashMap_Ids:Int = 0
-actual class WeakHashMap<K, V> : MutableMap<K, V>{
+actual class WeakHashMap<K: Any, V> : MutableMap<K, V>{
 
     fun genId() = "weakmap-${WeakHashMap_Ids++}"
     var id = genId()
