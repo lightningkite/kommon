@@ -46,20 +46,4 @@ class MainTest {
         //The value should be ... 1100 0010 0011
         assertEquals(0x34721827, flags.value)
     }
-
-    @Test
-    fun utf8(){
-        val string = "Test string with stuff"
-        val raw = string.toUTF8ByteArray()
-        val rewritten = String.fromUTF8ByteArray(raw)
-        assertEquals(string, rewritten)
-    }
-
-    @Test
-    fun utf16(){
-        val string = "Test string with stuff"
-        val raw = string.toUTF16ByteArray()
-        val rewritten = String.fromUTF16ByteArray(raw)
-        assertEquals(string, rewritten)
-    }
 }
