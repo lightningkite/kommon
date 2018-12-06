@@ -49,7 +49,7 @@ kotlin {
         fromPreset(presets.jvm, 'jvm')
         fromPreset(presets.js, 'js')
         if(org.gradle.internal.os.OperatingSystem.current().isMacOsX()){
-            fromPreset(presets.iosX64, 'iosX64')
+            fromPreset(presets.iosX64, 'iosx64')
             fromPreset(presets.iosArm64, 'ios')
         }
     }
@@ -95,12 +95,12 @@ kotlin {
             dependencies {
             }
         }
-        iosX64Main {
+        iosx64Main {
             dependencies {
                 dependsOn iosMain
             }
         }
-        iosX64Test {
+        iosx64Test {
             dependencies {
                 dependsOn iosTest
             }
@@ -117,12 +117,12 @@ tasks.withType(compileKotlinJs.getClass()) {
 
 task iosTest {
     def device = project.findProperty("iosDevice")?.toString() ?: "iPhone 8"
-    dependsOn 'linkTestDebugExecutableIosX64'
+    dependsOn 'linkTestDebugExecutableIosx64'
     group = JavaBasePlugin.VERIFICATION_GROUP
     description = "Runs tests for target 'ios' on an iOS simulator"
 
     doLast {
-        def binary = kotlin.targets.iosX64.compilations.test.getBinary('EXECUTABLE', 'DEBUG')
+        def binary = kotlin.targets.iosx64.compilations.test.getBinary('EXECUTABLE', 'DEBUG')
         exec {
             commandLine 'xcrun', 'simctl', 'spawn', device, binary.absolutePath
         }
