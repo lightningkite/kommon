@@ -87,22 +87,24 @@ kotlin {
             }
         }
 
-        iosMain {
-            dependencies {
+        if (org.gradle.internal.os.OperatingSystem.current().isMacOsX()) {
+            iosMain {
+                dependencies {
+                }
             }
-        }
-        iosTest {
-            dependencies {
+            iosTest {
+                dependencies {
+                }
             }
-        }
-        iosx64Main {
-            dependencies {
-                dependsOn iosMain
+            iosx64Main {
+                dependencies {
+                    dependsOn iosMain
+                }
             }
-        }
-        iosx64Test {
-            dependencies {
-                dependsOn iosTest
+            iosx64Test {
+                dependencies {
+                    dependsOn iosTest
+                }
             }
         }
     }
