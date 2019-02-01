@@ -2,7 +2,7 @@ package com.lightningkite.kommon.atomic
 
 
 actual class AtomicReference<T> actual constructor(value_: T) {
-    val backing = java.util.concurrent.atomic.AtomicReference<T>(value)
+    val backing = java.util.concurrent.atomic.AtomicReference<T>(value_)
 
     actual var value: T
         get() = backing.get()

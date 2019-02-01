@@ -6,5 +6,10 @@ expect class AtomicLong(value_: Long) {
     fun compareAndSet(expected: Long, new: Long): Boolean
 }
 
-fun AtomicLong.increment() = addAndGet(1)
-fun AtomicLong.decrement() = addAndGet(-1)
+fun AtomicLong.increment() {
+    addAndGet(1)
+}
+
+fun AtomicLong.decrement() {
+    addAndGet(-1)
+}

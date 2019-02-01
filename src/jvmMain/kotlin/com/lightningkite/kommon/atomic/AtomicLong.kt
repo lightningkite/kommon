@@ -2,7 +2,7 @@ package com.lightningkite.kommon.atomic
 
 
 actual class AtomicLong actual constructor(value_: Long) {
-    val backing = java.util.concurrent.atomic.AtomicLong(value)
+    val backing = java.util.concurrent.atomic.AtomicLong(value_)
 
     actual var value: Long
         get() = backing.get()

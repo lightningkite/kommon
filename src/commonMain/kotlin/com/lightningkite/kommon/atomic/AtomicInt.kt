@@ -6,5 +6,10 @@ expect class AtomicInt(value_: Int) {
     fun compareAndSet(expected: Int, new: Int): Boolean
 }
 
-fun AtomicInt.increment() = addAndGet(1)
-fun AtomicInt.decrement() = addAndGet(-1)
+fun AtomicInt.increment() {
+    addAndGet(1)
+}
+
+fun AtomicInt.decrement() {
+    addAndGet(-1)
+}

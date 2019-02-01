@@ -2,7 +2,7 @@ package com.lightningkite.kommon.atomic
 
 
 actual class AtomicInt actual constructor(value_: Int) {
-    val backing = java.util.concurrent.atomic.AtomicInteger(value)
+    val backing = java.util.concurrent.atomic.AtomicInteger(value_)
 
     actual var value: Int
         get() = backing.get()
