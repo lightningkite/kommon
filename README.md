@@ -13,6 +13,10 @@ Contains things that are expected by basically everything cross-platform.
     - `addSorted`
 - Handling bits
 - Various things with text
+- Atomic structures for all platforms
+    - `AtomicReference<T>`
+    - `AtomicInt`
+    - `AtomicLong`
 
 ## Things that still need done
 
