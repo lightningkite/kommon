@@ -1,6 +1,6 @@
 # Kommon (LK)
 
-Contains things that are expected by basically everything cross-platform.
+Contains things that are expected by basically everything cross-addAsTarget.
 
 ## Features
 
