@@ -19,7 +19,8 @@ dependencies {
     api "com.lightningkite:kommon-iosarm64:${lokalizeVersion}"
     api "com.lightningkite:kommon-iosx64:${lokalizeVersion}"
     and more!
-}```
+}
+```
 
 ## Features
 
