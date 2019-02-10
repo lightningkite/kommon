@@ -1,6 +1,26 @@
 # Kommon (LK)
 
-Contains things that are expected by basically everything cross-addAsTarget.
+ Maven: [ ![Download](https://api.bintray.com/packages/lightningkite/com.lightningkite.krosslin/kommon/images/download.svg) ](https://bintray.com/lightningkite/com.lightningkite.krosslin/kommon/_latestVersion) 
+
+Contains things that are expected by basically everything cross-platform.
+
+```
+repositories {
+    maven { url 'https://dl.bintray.com/lightningkite/com.lightningkite.krosslin' }
+    ...
+}
+...
+dependencies {
+    ...
+    //Depending on the version you need
+    api "com.lightningkite:kommon-metadata:${lokalizeVersion}"
+    api "com.lightningkite:kommon-jvm:${lokalizeVersion}"
+    api "com.lightningkite:kommon-js:${lokalizeVersion}"
+    api "com.lightningkite:kommon-iosarm64:${lokalizeVersion}"
+    api "com.lightningkite:kommon-iosx64:${lokalizeVersion}"
+    and more!
+}
+```
 
 ## Features
 
