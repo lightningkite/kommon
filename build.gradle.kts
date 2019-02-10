@@ -4,10 +4,22 @@ import java.util.Properties
 plugins {
     kotlin("multiplatform") version "1.3.21"
     `maven-publish`
-    id("com.lightningkite.konvenience") version "0.0.2"
+    id("org.jetbrains.dokka") version "0.9.17"
 }
 
+buildscript {
+    repositories {
+        mavenLocal()
+        maven("https://dl.bintray.com/lightningkite/com.lightningkite.krosslin")
+    }
+    dependencies {
+        classpath("com.lightningkite:konvenience:+")
+    }
+}
+apply(plugin = "com.lightningkite.konvenience")
+
 repositories {
+    jcenter()
     mavenLocal()
     mavenCentral()
     maven("https://dl.bintray.com/lightningkite/com.lightningkite.krosslin")
@@ -21,27 +33,24 @@ group = "com.lightningkite"
 version = versions.getProperty(project.name)
 
 kotlin {
-    all()
-
-    sources {
+    sources() {
         main {
-            mpp(standardLibrary)
+            dependency(standardLibrary)
         }
         test {
-            mpp(testing)
-            mpp(testingAnnotations)
-//            mpp(mavenDashPlatform("com.lightningkite", "kommon", "0.0.2"))
+            dependency(testing)
+            dependency(testingAnnotations)
         }
         isNonNative.sources {
             isJvm.sources {}
             isJs.sources {}
         }
         isNative.sources {}
-        isMacosX64.sources {
-            main {
-                kotlin.srcDir("src/nativeMain/kotlin")
-            }
-        }
+    }
+
+    dokka(project) {
+        this.outputFormat = "html"
+//        this.includes = listOf("readme.md")
     }
 }
 

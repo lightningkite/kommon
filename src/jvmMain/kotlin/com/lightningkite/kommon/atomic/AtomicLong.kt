@@ -12,4 +12,11 @@ actual class AtomicLong actual constructor(value_: Long) {
 
     actual fun compareAndSet(expected: Long, new: Long): Boolean = backing.compareAndSet(expected, new)
     actual fun addAndGet(delta: Long): Long = backing.addAndGet(delta)
+    actual fun increment() {
+        backing.incrementAndGet()
+    }
+
+    actual fun decrement() {
+        backing.decrementAndGet()
+    }
 }

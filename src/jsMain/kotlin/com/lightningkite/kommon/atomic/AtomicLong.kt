@@ -17,4 +17,12 @@ actual class AtomicLong actual constructor(value_: Long) {
         value += delta
         return value
     }
+
+    actual fun increment() {
+        addAndGet(1)
+    }
+
+    actual fun decrement() {
+        addAndGet(-1)
+    }
 }

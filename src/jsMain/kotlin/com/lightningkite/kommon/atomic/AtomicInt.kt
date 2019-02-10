@@ -17,4 +17,12 @@ actual class AtomicInt actual constructor(value_: Int) {
         value += delta
         return value
     }
+
+    actual fun increment() {
+        addAndGet(1)
+    }
+
+    actual fun decrement() {
+        addAndGet(-1)
+    }
 }
