@@ -13,11 +13,11 @@ repositories {
 dependencies {
     ...
     //Depending on the version you need
-    api "com.lightningkite:kommon-metadata:${lokalizeVersion}"
-    api "com.lightningkite:kommon-jvm:${lokalizeVersion}"
-    api "com.lightningkite:kommon-js:${lokalizeVersion}"
-    api "com.lightningkite:kommon-iosarm64:${lokalizeVersion}"
-    api "com.lightningkite:kommon-iosx64:${lokalizeVersion}"
+    api "com.lightningkite:kommon-metadata:${kommonVersion}"
+    api "com.lightningkite:kommon-jvm:${kommonVersion}"
+    api "com.lightningkite:kommon-js:${kommonVersion}"
+    api "com.lightningkite:kommon-iosarm64:${kommonVersion}"
+    api "com.lightningkite:kommon-iosx64:${kommonVersion}"
     and more!
 }
 ```
