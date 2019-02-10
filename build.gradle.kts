@@ -32,6 +32,7 @@ val versions = Properties().apply {
 group = "com.lightningkite"
 version = versions.getProperty(project.name)
 
+project.doNotPublishMetadata()
 kotlin {
     sources() {
         main {
