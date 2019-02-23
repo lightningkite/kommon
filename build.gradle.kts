@@ -32,7 +32,6 @@ val versions = Properties().apply {
 group = "com.lightningkite"
 version = versions.getProperty(project.name)
 
-project.doNotPublishMetadata()
 kotlin {
     sources() {
         main {
@@ -48,6 +47,12 @@ kotlin {
         }
         isNative.sources {}
     }
+//
+//    sourceSets {
+//        maybeCreate("mingwX64Main").apply {
+//            kotlin.srcDir("src/nativeMain/kotlin")
+//        }
+//    }
 
     dokka(project) {
         this.outputFormat = "html"
@@ -56,6 +61,7 @@ kotlin {
 }
 
 publishing {
+    doNotPublishMetadata()
     repositories {
         bintray(
                 project = project,
