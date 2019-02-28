@@ -54,10 +54,9 @@ kotlin {
 //        }
 //    }
 
-    dokka(project) {
-        this.outputFormat = "html"
-//        this.includes = listOf("readme.md")
-    }
+//    dokka(project) {
+//        this.outputFormat = "html"
+//    }
 }
 
 publishing {
