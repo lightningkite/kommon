@@ -1,8 +1,23 @@
 package com.lightningkite.kommon.atomic
 
-import kotlin.test.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class AtomicsTest {
+
+    class FakeImpl<T>(var value: T) {
+        fun compareAndSet(expected: T, new: T): Boolean {
+            if(value == expected){
+                value = new
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+
     @Test
     fun ref() {
         val firstValue = "asdf"
@@ -24,6 +39,16 @@ class AtomicsTest {
         assertFalse(atomic.compareAndSet(88, 5))
         assertEquals<Int>(4, atomic.value)
         assertTrue(atomic.compareAndSet(4, 5))
+        assertEquals<Int>(5, atomic.value)
+    }
+
+    @Test
+    fun value() {
+        val atomic = AtomicValue(42)
+        assertEquals<Int>(42, atomic.value)
+        assertFalse(atomic.compareAndSet(88, 5))
+        assertEquals<Int>(42, atomic.value)
+        assertTrue(atomic.compareAndSet(42, 5))
         assertEquals<Int>(5, atomic.value)
     }
 

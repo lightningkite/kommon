@@ -109,6 +109,13 @@ class SortedBag<E>(
     operator fun plus(other: SortedBag<E>): SortedBag<E> {
         return this.copy().apply { addAllOfSameSort(other) }
     }
+
+    fun first() = underlying.first()
+    fun last() = underlying.last()
+    fun firstOrNull() = underlying.firstOrNull()
+    fun lastOrNull() = underlying.lastOrNull()
+    fun popLast() = if(underlying.isNotEmpty()) underlying.removeAt(underlying.lastIndex) else null
+    fun popFirst() = if(underlying.isNotEmpty()) underlying.removeAt(0) else null
 }
 
 fun <E : Comparable<E>> SortedBag() = SortedBag<E>(Comparator { a, b -> a.compareTo(b) })
