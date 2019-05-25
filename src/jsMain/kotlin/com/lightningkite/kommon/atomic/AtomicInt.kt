@@ -1,9 +1,9 @@
 package com.lightningkite.kommon.atomic
 
+import com.lightningkite.kommon.property.MutablePropertyDelegate
 
-actual class AtomicInt actual constructor(value_: Int) {
 
-    actual var value: Int = value_
+actual class AtomicInt actual constructor(actual override var value: Int): MutablePropertyDelegate<Int> {
 
     actual fun compareAndSet(expected: Int, new: Int): Boolean {
         if (expected == value) {

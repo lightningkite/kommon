@@ -1,9 +1,9 @@
 package com.lightningkite.kommon.atomic
 
+import com.lightningkite.kommon.property.MutablePropertyDelegate
 
-actual class AtomicLong actual constructor(value_: Long) {
 
-    actual var value: Long = value_
+actual class AtomicLong actual constructor(actual override var value: Long): MutablePropertyDelegate<Long> {
 
     actual fun compareAndSet(expected: Long, new: Long): Boolean {
         if (expected == value) {

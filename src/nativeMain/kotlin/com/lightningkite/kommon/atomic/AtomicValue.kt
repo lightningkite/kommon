@@ -1,13 +1,14 @@
 package com.lightningkite.kommon.atomic
 
+import com.lightningkite.kommon.property.MutablePropertyDelegate
 import kotlin.native.concurrent.ThreadLocal
 import kotlin.native.concurrent.freeze
 
-actual class AtomicValue<T> actual constructor(value_: T) {
+actual class AtomicValue<T> actual constructor(value: T): MutablePropertyDelegate<T> {
 
     private val lock = Lock()
-    var backing: T = value_
-    actual var value: T
+    var backing: T = value
+    actual override var value: T
         get() {
             return backing
         }
@@ -38,8 +39,8 @@ private object CurrentThread {
 
 
 internal class Lock {
-    private val locker_ = AtomicInt(0)
-    private val reenterCount_ = AtomicInt(0)
+    private val locker_ = kotlin.native.concurrent.AtomicInt(0)
+    private val reenterCount_ = kotlin.native.concurrent.AtomicInt(0)
 
     // TODO: make it properly reschedule instead of spinning.
     fun lock() {

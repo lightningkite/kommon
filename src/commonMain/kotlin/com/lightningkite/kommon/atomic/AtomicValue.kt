@@ -1,6 +1,8 @@
 package com.lightningkite.kommon.atomic
 
-expect class AtomicValue<T>(value_: T) {
-    var value: T
+import com.lightningkite.kommon.property.MutablePropertyDelegate
+
+expect class AtomicValue<T>(value: T): MutablePropertyDelegate<T> {
+    override var value: T
     fun compareAndSet(expected: T, new: T): Boolean
 }

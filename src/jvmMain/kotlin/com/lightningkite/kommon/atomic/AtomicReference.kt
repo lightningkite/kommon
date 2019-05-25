@@ -1,10 +1,12 @@
 package com.lightningkite.kommon.atomic
 
+import com.lightningkite.kommon.property.MutablePropertyDelegate
 
-actual class AtomicReference<T> actual constructor(value_: T) {
-    val backing = java.util.concurrent.atomic.AtomicReference<T>(value_)
 
-    actual var value: T
+actual class AtomicReference<T>(val backing: java.util.concurrent.atomic.AtomicReference<T>): MutablePropertyDelegate<T> {
+    actual constructor(value: T):this(java.util.concurrent.atomic.AtomicReference<T>(value))
+
+    actual override var value: T
         get() = backing.get()
         set(value) {
             backing.set(value)

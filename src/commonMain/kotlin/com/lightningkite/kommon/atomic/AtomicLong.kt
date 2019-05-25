@@ -1,7 +1,9 @@
 package com.lightningkite.kommon.atomic
 
-expect class AtomicLong(value_: Long) {
-    var value: Long
+import com.lightningkite.kommon.property.MutablePropertyDelegate
+
+expect class AtomicLong(value: Long): MutablePropertyDelegate<Long> {
+    override var value: Long
     fun addAndGet(delta: Long): Long
     fun compareAndSet(expected: Long, new: Long): Boolean
     fun increment()
