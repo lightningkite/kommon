@@ -27,4 +27,5 @@ inline class UriAuthority(override val string: String) : BackedByString {
             host: String = this.host,
             port: String? = this.port
     ): UriAuthority = UriAuthority(userInfo, host, port)
+    override fun toString(): String = string
 }

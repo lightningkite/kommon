@@ -17,4 +17,5 @@ inline class MediaTypeAcceptor(override val string: String) : BackedByString, Me
 
     override val isValid: Boolean
         get() = string.count { it == '/' } == 1 && string.none { it.isWhitespace() || it.isControl() }
+    override fun toString(): String = string
 }

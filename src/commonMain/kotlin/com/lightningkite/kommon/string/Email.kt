@@ -23,4 +23,5 @@ inline class Email(override val string: String) : BackedByString {
                 "$name@$domain"
             }
     )
+    override fun toString(): String = string
 }

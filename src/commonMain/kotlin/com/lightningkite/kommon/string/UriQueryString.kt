@@ -12,4 +12,5 @@ inline class UriQueryString(override val string: String) : BackedByString {
     val escapedParameters: Sequence<Pair<String, String>>
         get() = string.splitToSequence('&')
                 .map { it.substringBefore('=') to it.substringAfter('=', "") }
+    override fun toString(): String = string
 }

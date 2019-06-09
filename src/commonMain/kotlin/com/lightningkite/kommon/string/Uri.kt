@@ -48,4 +48,6 @@ inline class Uri(override val string: String) : BackedByString {
             query = query,
             fragment = fragment
     )
+
+    override fun toString(): String = string
 }

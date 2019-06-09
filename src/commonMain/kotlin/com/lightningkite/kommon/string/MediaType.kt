@@ -18,6 +18,7 @@ inline class MediaType(override val string: String) : BackedByString, MediaTypeA
 
     override val isValid: Boolean
         get() = string.count { it == '/' } == 1 && string.substringBefore(';').none { it.isWhitespace() || it.isControl() || it == '*' }
+    override fun toString(): String = string
 }
 
 
