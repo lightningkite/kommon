@@ -2,7 +2,7 @@ import com.lightningkite.konvenience.gradle.*
 import java.util.Properties
 
 plugins {
-    kotlin("multiplatform") version "1.3.21"
+    kotlin("multiplatform")
     `maven-publish`
     id("org.jetbrains.dokka") version "0.9.17"
 }
