@@ -35,10 +35,13 @@ actual class WeakHashMap<K : Any, V> actual constructor() : MutableMap<K, V> {
 
     override fun clear() = underlying.clear()
 
+    var actionsUntilCleanMax = 10
+    var actionsUntilClean = actionsUntilCleanMax
     override fun put(key: K, value: V): V? {
         val ukey = UnderlyingKey(key)
         val old = underlying[ukey]
         underlying[ukey] = value
+        onAction()
         return old
     }
 
@@ -50,10 +53,19 @@ actual class WeakHashMap<K : Any, V> actual constructor() : MutableMap<K, V> {
 
     override fun remove(key: K): V? {
         val ukey = UnderlyingKey(key)
+        onAction()
         return underlying.remove(ukey)
     }
 
+    private fun onAction(){
+        actionsUntilClean--
+        if(actionsUntilClean <= 0){
+            privateClean()
+        }
+    }
+
     private fun privateClean() {
+        actionsUntilClean = actionsUntilCleanMax
         val iterator = underlying.iterator()
         while (iterator.hasNext()) {
             val it = iterator.next()
